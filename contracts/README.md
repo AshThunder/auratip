@@ -1,66 +1,45 @@
-## Foundry
+# AuraTip Smart Contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+The smart contracts for AuraTip are built using Foundry and deployed on the Arc Testnet. 
+The core functionality is split into a Factory contract (`TipJarFactory`) and individual `TipJar` proxy/clone contracts for each creator.
 
-Foundry consists of:
+## Core Contracts
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- **`TipJarFactory.sol`**: A permissionless factory that uses the EIP-1167 Minimal Proxy pattern to deploy new `TipJar` instances at deterministic addresses. It maintains a registry of all deployed TipJars.
+- **`TipJar.sol`**: The actual tipping contract for each creator. It natively integrates with the Circle USDC stablecoin, allowing supporters to tip using `transferFrom`. It emits events containing the tipper, amount, and an optional custom message.
 
-## Documentation
+## Setup & Deployment
 
-https://book.getfoundry.sh/
+### Dependencies
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+Install the necessary libraries (Forge Standard Library):
+```bash
+forge install
 ```
 
-### Test
+### Testing
 
-```shell
-$ forge test
+Run the exhaustive test suite which includes both unit tests and fork tests against the Arc Testnet environment:
+
+```bash
+forge test -vvv
 ```
 
-### Format
+### Deploying to Arc Testnet
 
-```shell
-$ forge fmt
+Create a `.env` file containing your deployment keys:
+```
+PRIVATE_KEY=your_deployer_key
 ```
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
+Execute the deployment script:
+```bash
+forge script script/Deploy.s.sol:DeployScript --rpc-url https://testnet.arcscan.app/rpc --private-key $PRIVATE_KEY --broadcast
 ```
 
-### Anvil
+### Verifying on ArcScan
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+To verify your smart contracts on the block explorer after deployment:
+```bash
+forge verify-contract <address> <contract> --verifier blockscout --verifier-url https://testnet.arcscan.app/api
 ```
