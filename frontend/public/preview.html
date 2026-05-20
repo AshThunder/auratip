@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Blog Embed Preview - AuraTip</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414752",
+                        "outline": "#717783",
+                        "primary": "#005caa",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "surface-container": "#eaedff",
+                        "inverse-on-surface": "#eef0ff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "primary-fixed": "#d4e3ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-container": "#2775ca",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-tertiary-container": "#f4fff6",
+                        "inverse-primary": "#a5c8ff",
+                        "on-secondary-container": "#54647a",
+                        "surface-bright": "#faf8ff",
+                        "secondary-container": "#d0e1fb",
+                        "background": "#faf8ff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d2d9f4",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-variant": "#dae2fd",
+                        "surface-tint": "#005faf",
+                        "tertiary-container": "#00855b",
+                        "on-primary-fixed-variant": "#004786",
+                        "on-primary-container": "#fcfbff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#505f76",
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-surface": "#283044",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e2e7ff",
+                        "on-surface": "#131b2e",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-background": "#131b2e",
+                        "outline-variant": "#c1c6d3",
+                        "tertiary": "#006947",
+                        "on-primary-fixed": "#001c3a",
+                        "surface-container-highest": "#dae2fd",
+                        "surface-container-low": "#f2f3ff",
+                        "primary-fixed-dim": "#a5c8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding-desktop": "24px",
+                        "widget-width": "400px",
+                        "unit": "8px",
+                        "container-padding-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .ambient-shadow {
+            box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-16">
+    <!-- TopAppBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm gap-4">
+        <div class="flex items-center flex-shrink-0">
+            <span class="text-headline-lg font-headline-lg font-bold text-primary dark:text-primary-fixed-dim">AuraTip</span>
+        </div>
+        
+        <!-- Interactive Control Bar -->
+        <div class="flex flex-col md:flex-row items-center gap-2 bg-surface-container-low p-2 rounded-xl border border-outline-variant/30 max-w-4xl w-full flex-grow">
+            <div class="flex items-center gap-2 flex-grow bg-surface p-2 rounded-lg w-full">
+                <span class="material-symbols-outlined text-[18px] text-outline flex-shrink-0">wallet</span>
+                <input 
+                    type="text" 
+                    id="addressInput" 
+                    value="0x931c96c1705611796a9adb59dbe55d1e8f160d55" 
+                    placeholder="Creator Wallet Address" 
+                    class="bg-transparent border-none p-0 text-label-sm font-label-sm text-on-surface focus:ring-0 focus:outline-none w-full placeholder:text-outline-variant"
+                    onkeydown="if(event.key === 'Enter') updateWidget()"
+                />
+            </div>
+            <div class="flex items-center gap-2 w-full md:w-auto">
+                <select id="themeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <select id="colorSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
+                    <option value="%23005caa">Blue</option>
+                    <option value="%2300d4a4">Green</option>
+                    <option value="%23f97316">Orange</option>
+                    <option value="%23ec4899">Pink</option>
+                    <option value="%238b5cf6">Purple</option>
+                </select>
+                <select id="sizeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
+                    <option value="standard">Standard</option>
+                    <option value="slim">Slim</option>
+                    <option value="floating">Floating</option>
+                </select>
+                <button 
+                    onclick="updateWidget()" 
+                    class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm font-semibold hover:opacity-90 active:scale-95 transition-all whitespace-nowrap flex-shrink-0"
+                >
+                    Load
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-6 flex-shrink-0">
+            <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Features</a>
+            <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary text-label-md font-label-md" href="#">Developers</a>
+            <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Pricing</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-8 pb-12 px-container-padding-mobile md:px-container-padding-desktop max-w-[1200px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Blog Article -->
+        <article class="lg:col-span-8 flex flex-col gap-6">
+            <header class="mb-4">
+                <div class="flex items-center gap-2 text-primary text-label-sm font-label-sm mb-2 uppercase tracking-wider">
+                    <span>Web3</span>
+                    <span>•</span>
+                    <span>UX Design</span>
+                    <span>•</span>
+                    <span>5 Min Read</span>
+                </div>
+                <h1 class="text-headline-xl font-headline-xl text-on-surface mb-4">The Future of Web3 UX: Invisible Complexity</h1>
+                
+                <div class="flex items-center gap-4 mb-6">
+                    <img alt="Author Avatar" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATQJeib13POLh3IhfAkPGNZ1mtRPQZ9PY_HFLiNCOl9ZLgiSEc7bl9lOiZ0h9qJow2Uq6Mfygcb01T0fAxsP35kk6uFxH6dTEUncwO3ZlDk0kPE9qT6tDsPRNoKUWTmlz6DbgAGE5TwTdbLXwGKC3Phly1BIRnU-h_ykxHbtMrG2uZX2oxuv_Lnb_eYI0n3iZVTVGdXwnWtAZqv82TCyiJFwm5U-qOlILTq71vP1J1jV7nU-DWqvKJamcm_ZreHqBmiI4u_7_HonY"/>
+                    <div>
+                        <p class="text-label-md font-label-md text-on-surface font-semibold">Sarah Jenkins</p>
+                        <p class="text-label-sm font-label-sm text-on-surface-variant">Lead Product Designer</p>
+                    </div>
+                </div>
+
+                <img alt="Blog Hero Image" class="w-full h-[360px] object-cover rounded-xl mb-6 ambient-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSy64koM_i7fF1gDxdtnIiaPS9ZbDG-AI5PVlw6a-tq8iWmUjvH3-AW5gz5GRxLojlMeIn8mR06fr_2nCt0UJAZK0fZ5e2x4_oWuE61Wg5LsB5cOu2uXYPcsvT2cPKk4pDGoRDIrTzLGCbMaa2FRctV8dnULXNmnZnZYTTkyD25TSKtnIrzh52euJGCOg9xVCAnZLh__Ceo815Bmr9l59omIdbrHJbFbOSdbziDFdpQiD2h9umwZPFASQoLJv152mGa3bDyB1lueI"/>
+            </header>
+
+            <div class="text-body-lg font-body-lg text-on-surface-variant space-y-6">
+                <p>For years, the barrier to entry in Web3 has been arguably the highest of any major technological shift. Users were expected to manage seed phrases, understand gas fees, and navigate clunky wallet interfaces just to perform simple transactions. The underlying technology was revolutionary, but the user experience was stuck in the dial-up era.</p>
+                <p>However, we are finally seeing a paradigm shift. The next generation of Web3 applications is embracing a philosophy of "invisible complexity." This approach hides the friction of blockchain technology behind intuitive, familiar interfaces that feel native to Web2 users.</p>
+                
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mt-8 mb-4">Abstracting the Blockchain</h2>
+                <p>One of the most significant advancements is Account Abstraction (ERC-4337). This allows smart contracts to act as primary accounts, enabling features like social recovery, gasless transactions, and seamless integration with hardware passkeys.</p>
+                
+                <blockquote class="border-l-4 border-primary pl-4 my-6 italic text-on-surface font-medium">
+                    "The goal isn't to teach users how the blockchain works; the goal is to make it so they never have to know it's there."
+                </blockquote>
+                
+                <p>By leveraging these technologies, developers can create experiences where users sign in with their device's native biometric scanner (FaceID/TouchID) and execute transactions instantly without worrying about network congestion or token balances for gas.</p>
+                
+                <h2 class="text-headline-lg font-headline-lg text-on-surface mt-8 mb-4">The AuraTip Standard</h2>
+                <p>A prime example of this new standard is the embedded transaction widget. Consider a content creator wanting to receive micropayments in USDC. In the past, this required the reader to copy a long alphanumeric address, open a separate wallet app, calculate gas, and send the transaction.</p>
+                <p>Now, as demonstrated in the sidebar of this very page, a widget can provide a frictionless 1-click tipping experience directly within the content context. This is the power of modern Web3 UX: seamless integration, robust security, and zero friction.</p>
+            </div>
+        </article>
+
+        <!-- Sidebar / Widget Embed -->
+        <aside class="lg:col-span-4 relative">
+            <div class="sticky top-24 space-y-8">
+                <!-- AuraTip Live Tipping Widget -->
+                <div class="w-full max-w-[400px] mx-auto bg-surface-container-lowest rounded-2xl border border-outline-variant/30 ambient-shadow overflow-hidden flex flex-col relative z-10">
+                    <iframe 
+                        id="tipJarWidget" 
+                        src="" 
+                        class="w-full h-[480px] border-none bg-transparent"
+                        title="Tipping Widget"
+                    ></iframe>
+                </div>
+
+                <!-- Advertisement / Callout below widget -->
+                <div class="mt-8 p-6 bg-surface-container-low rounded-xl border border-outline-variant/20 hidden lg:block">
+                    <h4 class="text-label-md font-label-md font-bold text-on-surface mb-2">Want this widget on your blog?</h4>
+                    <p class="text-label-sm font-label-sm text-on-surface-variant mb-4">Integrate AuraTip seamlessly and start receiving USDC with zero friction.</p>
+                    <a class="text-primary text-label-md font-label-md font-semibold hover:underline flex items-center gap-1" href="/">
+                        Get Your Custom Widget
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-auto px-container-padding-mobile md:px-container-padding-desktop flex flex-col md:flex-row justify-between items-center gap-gutter py-12 bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant/50">
+        <div>
+            <span class="text-label-md font-label-md font-bold text-on-surface">AuraTip</span>
+        </div>
+        <div class="flex gap-6">
+            <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#">Terms of Service</a>
+            <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="/">Developer Dashboard</a>
+            <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors text-label-sm font-label-sm" href="#">Status</a>
+        </div>
+        <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">© 2026 AuraTip Financial. Powered by USDC.</p>
+        </div>
+    </footer>
+
+    <!-- Script to dynamically load and update the tipping widget -->
+    <script>
+        // Set widget location from query param if available, otherwise use input value
+        const urlParams = new URLSearchParams(window.location.search);
+        const addressQuery = urlParams.get('address');
+        if (addressQuery) {
+            document.getElementById('addressInput').value = addressQuery;
+        }
+
+        // Initialize
+        updateWidget();
+
+        function updateWidget() {
+            const inputVal = document.getElementById('addressInput').value.trim();
+            const iframe = document.getElementById('tipJarWidget');
+            if (!iframe) return;
+
+            const theme = document.getElementById('themeSelect').value;
+            const color = document.getElementById('colorSelect').value;
+            const size = document.getElementById('sizeSelect').value;
+
+            let targetUrl = '';
+            if (inputVal.startsWith('http://') || inputVal.startsWith('https://')) {
+                targetUrl = inputVal;
+            } else {
+                targetUrl = window.location.origin + '/tip/' + inputVal + `?theme=${theme}&color=${color}&size=${size}`;
+            }
+
+            // Adjust iframe wrapper width based on size
+            const wrapper = iframe.parentElement;
+            
+            if (size === 'floating') {
+                wrapper.className = '';
+                wrapper.style.position = 'fixed';
+                wrapper.style.bottom = '24px';
+                wrapper.style.right = '24px';
+                wrapper.style.zIndex = '999999';
+                wrapper.style.width = '360px';
+                wrapper.style.height = '520px';
+                wrapper.style.backgroundColor = 'transparent';
+                
+                iframe.style.width = '360px';
+                iframe.style.height = '520px';
+            } else {
+                wrapper.className = 'w-full mx-auto bg-surface-container-lowest rounded-2xl border border-outline-variant/30 ambient-shadow overflow-hidden flex flex-col relative z-10';
+                wrapper.style = '';
+                iframe.style = '';
+                
+                if (size === 'slim') {
+                    wrapper.classList.remove('max-w-[400px]');
+                    wrapper.classList.add('max-w-[320px]');
+                } else {
+                    wrapper.classList.remove('max-w-[320px]');
+                    wrapper.classList.add('max-w-[400px]');
+                }
+            }
+
+            iframe.src = targetUrl;
+        }
+    </script>
+</body>
+</html>
