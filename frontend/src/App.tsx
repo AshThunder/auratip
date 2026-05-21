@@ -43,6 +43,8 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const isTipPage = location.pathname.startsWith('/tip/');
+  const searchParams = new URLSearchParams(location.search);
+  const isFloating = isTipPage && searchParams.get("size") === "floating";
   
   const [showDepositModal, setShowDepositModal] = useState(false);
   const [faucetLoading, setFaucetLoading] = useState(false);
@@ -162,7 +164,7 @@ export default function App() {
   }, [account]);
 
   return (
-    <div className="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+    <div className={`${isFloating ? "bg-transparent" : "bg-background"} text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container`}>
       {/* ─── Header / Navbar ─── */}
       {!isTipPage && (
         <header
