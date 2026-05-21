@@ -139,7 +139,7 @@ export default function SetupGuide({
                 2
               </div>
               <div className="flex-grow min-w-0">
-                <h3 className="text-headline-sm font-bold text-on-surface mb-2">Deploy Your Tip Jar Contract</h3>
+                <h3 className="text-headline-sm font-bold text-on-surface mb-2">Deploy Your AuraTip Contract</h3>
                 <p className="text-body-md text-on-surface-variant mb-4">
                   Your tips are received and secured by your own deployed smart contract.
                 </p>

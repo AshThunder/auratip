@@ -207,9 +207,9 @@ export default function WidgetEditor({
           {!tipJarAddress && !loading ? (
             <div className="glass-panel bg-surface rounded-xl border border-outline-variant/30 p-8 text-center max-w-xl mx-auto shadow-md">
               <span className="material-symbols-outlined text-[48px] text-primary mb-4">settings_suggest</span>
-              <h2 className="text-headline-sm font-headline-sm font-bold text-on-surface mb-2">Tip Jar Required</h2>
+              <h2 className="text-headline-sm font-headline-sm font-bold text-on-surface mb-2">AuraTip Required</h2>
               <p className="text-body-md font-body-md text-on-surface-variant mb-6">
-                You need to set up and deploy your Tip Jar smart contract first before configuring widget styling.
+                You need to set up and deploy your AuraTip smart contract first before configuring widget styling.
               </p>
               <a
                 href="/"
@@ -320,23 +320,23 @@ export default function WidgetEditor({
                   </div>
                 </div>
 
-                {/* Embed Code Card */}
+                                {/* Embed Code Card */}
                 <div className="mt-6 pt-6 border-t border-outline-variant/20">
-                  <label className="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider block mb-2">
+                  <label className="text-label-md font-label-md font-bold text-on-surface uppercase tracking-wider block mb-2">
                     Embed Code
                   </label>
                   <div className="relative">
                     <textarea
-                      className="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg p-3 text-label-sm font-label-sm text-outline font-mono h-20 resize-none outline-none focus:border-primary transition-colors"
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-slate-100 font-mono h-32 resize-none outline-none focus:border-primary transition-colors leading-relaxed shadow-inner"
                       readOnly
                       value={getEmbedCode()}
                     />
                     <button
                       onClick={copyEmbedCode}
-                      className="absolute bottom-2 right-2 bg-surface text-on-surface-variant border border-outline-variant/30 rounded-md px-3 py-1 text-label-sm font-label-sm hover:bg-surface-container transition-colors shadow-sm flex items-center gap-1"
+                      className="absolute bottom-3 right-3 bg-white/10 hover:bg-white/20 active:scale-95 text-white border border-white/20 rounded-lg px-4 py-2 text-label-md font-semibold transition-all shadow-md flex items-center gap-1.5 backdrop-blur-sm cursor-pointer"
                     >
-                      <span className="material-symbols-outlined text-[14px]">content_copy</span>
-                      Copy
+                      <span className="material-symbols-outlined text-[16px] text-white">content_copy</span>
+                      Copy Code
                     </button>
                   </div>
                 </div>

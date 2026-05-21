@@ -189,7 +189,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
       <div className={theme === 'dark' ? 'dark' : ''}>
         <div className="min-h-screen w-full flex flex-col items-center justify-center bg-background dark:bg-inverse-surface text-on-background dark:text-on-primary-container p-4">
           <span className="material-symbols-outlined text-[48px] animate-spin mb-4" style={{ color }}>autorenew</span>
-          <p className="text-body-md font-body-md font-medium text-on-surface-variant">Finding Tip Jar details...</p>
+          <p className="text-body-md font-body-md font-medium text-on-surface-variant">Finding AuraTip details...</p>
         </div>
       </div>
     );
@@ -213,7 +213,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
           <div className="glass-panel bg-surface dark:bg-surface-container rounded-2xl p-8 max-w-[360px] text-center shadow-lg border border-outline-variant/30">
             <span className="material-symbols-outlined text-[48px] text-error mb-4">error</span>
             <h2 className="text-headline-sm font-headline-sm text-on-surface font-bold mb-2">Jar Not Found</h2>
-            <p className="text-body-md font-body-md text-on-surface-variant">This creator hasn't set up their Tip Jar yet.</p>
+            <p className="text-body-md font-body-md text-on-surface-variant">This creator hasn't set up their AuraTip yet.</p>
           </div>
         </div>
       </div>
@@ -355,7 +355,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
             onClick={() => setIsExpanded(!isExpanded)}
             style={{ backgroundColor: color }}
             className="w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-all cursor-pointer group relative animate-fade-in"
-            title={isExpanded ? "Close Tip Jar" : `Tip ${creatorName}`}
+            title={isExpanded ? "Close AuraTip" : `Tip ${creatorName}`}
           >
             <span className="material-symbols-outlined text-[28px] text-white">
               {isExpanded ? "close" : "payments"}
@@ -390,7 +390,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
                 <button
                   onClick={() => setIsExpanded(false)}
                   className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-variant/40 transition-colors cursor-pointer"
-                  title="Collapse Tip Jar"
+                  title="Collapse AuraTip"
                 >
                   <span className="material-symbols-outlined text-[20px]">close</span>
                 </button>

@@ -89,7 +89,7 @@ export default function Sidebar({ balance, jarBalance, withdrawFunds, openDeposi
           {/* Drawer Panel */}
           <aside className="fixed top-0 left-0 h-full w-72 bg-surface dark:bg-surface-container z-50 shadow-2xl border-r border-outline-variant/30 flex flex-col py-6 md:hidden animate-enter">
             <div className="flex justify-between items-center px-6 mb-6">
-              <span className="text-headline-sm font-headline-sm font-bold text-primary">TipJar Hub</span>
+              <span className="text-headline-sm font-headline-sm font-bold text-primary">AuraTip Hub</span>
               <button 
                 onClick={() => setIsOpen(false)}
                 className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"

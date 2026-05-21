@@ -136,7 +136,7 @@ export default function Dashboard({ account, balance, setStatus, refreshBalance,
   const createTipJar = async () => {
     if (!registerName.trim() || !account) return;
     try {
-      setStatus("Deploying your Tip Jar...");
+      setStatus("Deploying your AuraTip...");
       
       // Encode call to createTipJar
       const callData = {
@@ -158,7 +158,7 @@ export default function Dashboard({ account, balance, setStatus, refreshBalance,
 
       setStatus("Waiting for deployment transaction...");
       await bundlerClient.waitForUserOperationReceipt({ hash: userOpHash });
-      setStatus("Tip Jar deployed!");
+      setStatus("AuraTip deployed!");
       await checkTipJar();
     } catch (err: any) {
       setStatus("Failed to deploy: " + (err.message || ""));
@@ -375,9 +375,9 @@ export default function Dashboard({ account, balance, setStatus, refreshBalance,
       {!tipJarAddress ? (
         <div className="max-w-6xl mx-auto px-container-padding-mobile md:px-container-padding-desktop py-12 flex justify-center">
           <div className="glass-panel bg-white/95 w-full max-w-[500px] rounded-2xl p-8 shadow-xl border border-white/60 text-center">
-            <h3 className="text-[24px] font-bold text-on-surface mb-2">Setup Your Tip Jar</h3>
+            <h3 className="text-[24px] font-bold text-on-surface mb-2">Setup Your AuraTip</h3>
             <p className="text-label-md font-label-md text-on-surface-variant mb-6">
-              Enter your name to deploy your personal Tip Jar smart contract on Arc Testnet.
+              Enter your name to deploy your personal AuraTip smart contract on Arc Testnet.
             </p>
             <div className="mb-6 text-left">
               <label className="block text-label-sm font-label-sm font-semibold text-on-surface-variant mb-2">
@@ -394,7 +394,7 @@ export default function Dashboard({ account, balance, setStatus, refreshBalance,
               className="w-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all py-3.5 rounded-xl text-label-md font-label-md font-bold shadow-md active:scale-95 flex items-center justify-center gap-2"
               onClick={createTipJar}
             >
-              Deploy Tip Jar
+              Deploy AuraTip
             </button>
           </div>
         </div>
@@ -439,10 +439,10 @@ export default function Dashboard({ account, balance, setStatus, refreshBalance,
                       <button
                         onClick={() => {
                           navigator.clipboard.writeText(tipJarAddress);
-                          setStatus("Tip Jar Address copied to clipboard!");
+                          setStatus("AuraTip Address copied to clipboard!");
                           setTimeout(() => setStatus(""), 2000);
                         }}
-                        title="Click to copy Deployed Tip Jar Contract Address"
+                        title="Click to copy Deployed AuraTip Contract Address"
                         className="inline-flex items-center gap-1.5 bg-surface hover:bg-surface-container border border-outline-variant/30 px-3 py-1 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface active:scale-95 transition-all group shadow-sm cursor-pointer"
                       >
                         <span className="material-symbols-outlined text-[14px]">payments</span>

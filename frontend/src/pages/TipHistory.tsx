@@ -254,7 +254,7 @@ export default function TipHistory({ account, balance, setStatus, refreshBalance
                 <div>
                   <h1 className="text-headline-xl font-headline-xl text-on-background">Tip History</h1>
                   <p className="text-body-md font-body-md text-on-surface-variant mb-2">
-                    Review and search all support tips received by your Tip Jar.
+                    Review and search all support tips received by your AuraTip.
                   </p>
                   
                   {tipJarAddress && (
@@ -262,7 +262,7 @@ export default function TipHistory({ account, balance, setStatus, refreshBalance
                       <button
                         onClick={() => handleCopyText(tipJarAddress, "jar")}
                         className="group flex items-center gap-1.5 bg-surface-variant/40 dark:bg-surface-variant/25 text-primary hover:bg-surface-variant/80 dark:hover:bg-surface-variant/40 px-3 py-1 rounded-full text-label-sm font-label-sm transition-all active:scale-95 cursor-pointer"
-                        title="Click to copy Deployed Tip Jar Contract Address"
+                        title="Click to copy Deployed AuraTip Contract Address"
                       >
                         <span className="material-symbols-outlined text-[14px]">payments</span>
                         <span>AuraTip: {tipJarAddress.slice(0, 6)}...{tipJarAddress.slice(-4)}</span>
@@ -283,9 +283,9 @@ export default function TipHistory({ account, balance, setStatus, refreshBalance
                       campaign
                     </span>
                   </div>
-                  <h3 className="text-headline-md font-headline-md text-on-surface mb-3">No Deployed Tip Jar</h3>
+                  <h3 className="text-headline-md font-headline-md text-on-surface mb-3">No Deployed AuraTip</h3>
                   <p className="text-body-md font-body-md text-on-surface-variant mb-6">
-                    You need to deploy your Tip Jar contract on the Arc Testnet first before you can receive tips and review history.
+                    You need to deploy your AuraTip contract on the Arc Testnet first before you can receive tips and review history.
                   </p>
                   <Link
                     to="/"
