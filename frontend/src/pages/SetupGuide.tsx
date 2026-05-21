@@ -194,7 +194,7 @@ export default function SetupGuide({
                   Copy the `&lt;iframe&gt;` snippet from the Widget Editor and paste it into the HTML code of your website, blog, or landing page.
                 </p>
                 <div className="bg-surface-container-low border border-outline-variant/20 rounded-xl p-4 font-mono text-sm text-outline select-all overflow-x-auto whitespace-nowrap max-w-full">
-                  {`<iframe src="${window.location.origin}/tip/${account.address}" width="400" height="480" style="border:none;"></iframe>`}
+                  {`<iframe src="${window.location.origin}/tip/${account.address}" width="400" height="480" style="border:none;" allow="publickey-credentials-get"></iframe>`}
                 </div>
               </div>
             </div>

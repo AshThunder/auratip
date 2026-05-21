@@ -154,9 +154,9 @@ export default function WidgetEditor({
   const getEmbedCode = () => {
     if (!account) return "Connect wallet to generate embed code.";
     if (widgetSize === "floating") {
-      return `<iframe src="${window.location.origin}/tip/${account.address}?theme=${widgetTheme}&color=${encodeURIComponent(widgetColor)}&size=floating" width="360" height="520" style="position: fixed; bottom: 24px; right: 24px; border: none; z-index: 999999; background: transparent;" title="${creatorName || 'TipJar'}"></iframe>`;
+      return `<iframe src="${window.location.origin}/tip/${account.address}?theme=${widgetTheme}&color=${encodeURIComponent(widgetColor)}&size=floating" width="360" height="520" style="position: fixed; bottom: 24px; right: 24px; border: none; z-index: 999999; background: transparent;" title="${creatorName || 'AuraTip'}" allow="publickey-credentials-get"></iframe>`;
     }
-    return `<iframe src="${window.location.origin}/tip/${account.address}?theme=${widgetTheme}&color=${encodeURIComponent(widgetColor)}&size=${widgetSize}" width="${widgetSize === 'slim' ? '320' : '400'}" height="480" style="border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.05) 0 4px 6px;" title="${creatorName || 'TipJar'}"></iframe>`;
+    return `<iframe src="${window.location.origin}/tip/${account.address}?theme=${widgetTheme}&color=${encodeURIComponent(widgetColor)}&size=${widgetSize}" width="${widgetSize === 'slim' ? '320' : '400'}\" height="480" style="border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.05) 0 4px 6px;" title="${creatorName || 'AuraTip'}" allow="publickey-credentials-get"></iframe>`;
   };
 
   const copyEmbedCode = () => {
@@ -360,6 +360,7 @@ export default function WidgetEditor({
                 >
                   <iframe
                     src={`${window.location.origin}/tip/${account?.address}?theme=${widgetTheme}&color=${encodeURIComponent(widgetColor)}&size=${widgetSize}`}
+                    allow="publickey-credentials-get"
                     className={`w-full ${
                       widgetSize === "floating" ? "h-[520px]" : "h-[460px]"
                     } transition-all duration-300 ${
