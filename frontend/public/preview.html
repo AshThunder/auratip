@@ -117,56 +117,62 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-16">
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-32 md:pt-28">
     <!-- TopAppBar -->
-    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm gap-4">
-        <div class="flex items-center flex-shrink-0">
-            <span class="text-headline-lg font-headline-lg font-bold text-primary dark:text-primary-fixed-dim">AuraTip</span>
-        </div>
-        
-        <!-- Interactive Control Bar -->
-        <div class="flex flex-col md:flex-row items-center gap-2 bg-surface-container-low p-2 rounded-xl border border-outline-variant/30 max-w-4xl w-full flex-grow">
-            <div class="flex items-center gap-2 flex-grow bg-surface p-2 rounded-lg w-full">
-                <span class="material-symbols-outlined text-[18px] text-outline flex-shrink-0">wallet</span>
-                <input 
-                    type="text" 
-                    id="addressInput" 
-                    value="0x931c96c1705611796a9adb59dbe55d1e8f160d55" 
-                    placeholder="Creator Wallet Address" 
-                    class="bg-transparent border-none p-0 text-label-sm font-label-sm text-on-surface focus:ring-0 focus:outline-none w-full placeholder:text-outline-variant"
-                    onkeydown="if(event.key === 'Enter') updateWidget()"
-                />
+    <nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+        <!-- Top row: Brand + Desktop Nav -->
+        <div class="flex justify-between items-center px-4 md:px-container-padding-desktop h-14">
+            <div class="flex items-center flex-shrink-0">
+                <span class="text-headline-lg font-headline-lg font-bold text-primary dark:text-primary-fixed-dim">AuraTip</span>
             </div>
-            <div class="flex items-center gap-2 w-full md:w-auto">
-                <select id="themeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-                <select id="colorSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
-                    <option value="%23005caa">Blue</option>
-                    <option value="%2300d4a4">Green</option>
-                    <option value="%23f97316">Orange</option>
-                    <option value="%23ec4899">Pink</option>
-                    <option value="%238b5cf6">Purple</option>
-                </select>
-                <select id="sizeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer">
-                    <option value="standard">Standard</option>
-                    <option value="slim">Slim</option>
-                    <option value="floating">Floating</option>
-                </select>
-                <button 
-                    onclick="updateWidget()" 
-                    class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-label-sm font-semibold hover:opacity-90 active:scale-95 transition-all whitespace-nowrap flex-shrink-0"
-                >
-                    Load
-                </button>
+            <div class="hidden lg:flex items-center gap-6 flex-shrink-0">
+                <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Features</a>
+                <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary text-label-md font-label-md" href="#">Developers</a>
+                <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Pricing</a>
             </div>
         </div>
 
-        <div class="hidden lg:flex items-center gap-6 flex-shrink-0">
-            <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Features</a>
-            <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary text-label-md font-label-md" href="#">Developers</a>
-            <a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors text-label-md font-label-md" href="#">Pricing</a>
+        <!-- Control Bar: stacks vertically on mobile -->
+        <div class="px-4 md:px-container-padding-desktop pb-3">
+            <div class="flex flex-col gap-2 bg-surface-container-low p-2 rounded-xl border border-outline-variant/30 max-w-4xl">
+                <!-- Address Input -->
+                <div class="flex items-center gap-2 bg-surface p-2 rounded-lg w-full">
+                    <span class="material-symbols-outlined text-[18px] text-outline flex-shrink-0">wallet</span>
+                    <input 
+                        type="text" 
+                        id="addressInput" 
+                        value="0x931c96c1705611796a9adb59dbe55d1e8f160d55" 
+                        placeholder="Creator Wallet Address" 
+                        class="bg-transparent border-none p-0 text-label-sm font-label-sm text-on-surface focus:ring-0 focus:outline-none w-full placeholder:text-outline-variant truncate"
+                        onkeydown="if(event.key === 'Enter') updateWidget()"
+                    />
+                </div>
+                <!-- Selects + Load -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <select id="themeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer flex-1 min-w-[70px]">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                    <select id="colorSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer flex-1 min-w-[70px]">
+                        <option value="%23005caa">Blue</option>
+                        <option value="%2300d4a4">Green</option>
+                        <option value="%23f97316">Orange</option>
+                        <option value="%23ec4899">Pink</option>
+                        <option value="%238b5cf6">Purple</option>
+                    </select>
+                    <select id="sizeSelect" onchange="updateWidget()" class="bg-surface border-none text-label-sm text-on-surface rounded-lg p-2 focus:ring-0 cursor-pointer flex-1 min-w-[80px]">
+                        <option value="standard">Standard</option>
+                        <option value="slim">Slim</option>
+                        <option value="floating">Floating</option>
+                    </select>
+                    <button 
+                        onclick="updateWidget()" 
+                        class="bg-primary text-on-primary px-5 py-2 rounded-lg text-label-sm font-label-sm font-semibold hover:opacity-90 active:scale-95 transition-all whitespace-nowrap flex-shrink-0"
+                    >
+                        Load
+                    </button>
+                </div>
+            </div>
         </div>
     </nav>
 
