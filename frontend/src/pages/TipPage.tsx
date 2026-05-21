@@ -55,6 +55,13 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
     if (isFloating) {
       document.body.style.backgroundColor = "transparent";
       document.body.style.background = "transparent";
+      document.documentElement.style.backgroundColor = "transparent";
+      document.documentElement.style.background = "transparent";
+      const rootEl = document.getElementById("root");
+      if (rootEl) {
+        rootEl.style.backgroundColor = "transparent";
+        rootEl.style.background = "transparent";
+      }
     }
   }, [isFloating]);
 
