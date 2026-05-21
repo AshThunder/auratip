@@ -300,12 +300,12 @@
                 wrapper.style.bottom = '24px';
                 wrapper.style.right = '24px';
                 wrapper.style.zIndex = '999999';
-                wrapper.style.width = '360px';
-                wrapper.style.height = '520px';
+                wrapper.style.width = '240px';
+                wrapper.style.height = '90px';
                 wrapper.style.backgroundColor = 'transparent';
                 
-                iframe.style.width = '360px';
-                iframe.style.height = '520px';
+                iframe.style.width = '240px';
+                iframe.style.height = '90px';
             } else {
                 wrapper.className = 'w-full mx-auto bg-surface-container-lowest rounded-2xl border border-outline-variant/30 ambient-shadow overflow-hidden flex flex-col relative z-10';
                 wrapper.style = '';
@@ -322,6 +322,29 @@
 
             iframe.src = targetUrl;
         }
+
+        // Listen to messages from the iframe to resize it in floating mode
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'auratip-toggle') {
+                const iframe = document.getElementById('tipJarWidget');
+                if (!iframe) return;
+                const wrapper = iframe.parentElement;
+                const size = document.getElementById('sizeSelect').value;
+                if (size === 'floating') {
+                    if (event.data.expanded) {
+                        wrapper.style.width = '360px';
+                        wrapper.style.height = '520px';
+                        iframe.style.width = '360px';
+                        iframe.style.height = '520px';
+                    } else {
+                        wrapper.style.width = '240px';
+                        wrapper.style.height = '90px';
+                        iframe.style.width = '240px';
+                        iframe.style.height = '90px';
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>

@@ -52,6 +52,19 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
   } as React.CSSProperties;
 
   useEffect(() => {
+    if (isFloating) {
+      document.body.style.backgroundColor = "transparent";
+      document.body.style.background = "transparent";
+    }
+  }, [isFloating]);
+
+  useEffect(() => {
+    if (isFloating) {
+      window.parent.postMessage({ type: "auratip-toggle", expanded: isExpanded }, "*");
+    }
+  }, [isFloating, isExpanded]);
+
+  useEffect(() => {
     if (address) {
       fetchJarAddress();
     }
