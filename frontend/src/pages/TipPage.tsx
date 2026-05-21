@@ -235,7 +235,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
 
   if (success) {
     return (
-      <div className={`${theme === 'dark' ? 'dark' : ''} h-screen overflow-y-auto no-scrollbar w-full relative`} style={pageStyle}>
+      <div className={`${theme === 'dark' ? 'dark' : ''} ${isFloating ? 'w-full h-full pointer-events-none' : 'h-screen overflow-y-auto no-scrollbar w-full relative'}`} style={pageStyle}>
         {isFloating && (
           <div className="fixed bottom-4 right-4 z-50 pointer-events-auto">
             <button
@@ -347,7 +347,7 @@ export default function TipPage({ account, setStatus, refreshBalance, onLogin }:
   }
 
   return (
-    <div style={pageStyle} className={`${theme === 'dark' ? 'dark' : ''} h-screen overflow-y-auto no-scrollbar w-full relative`}>
+    <div style={pageStyle} className={`${theme === 'dark' ? 'dark' : ''} ${isFloating ? 'w-full h-full pointer-events-none' : 'h-screen overflow-y-auto no-scrollbar w-full relative'}`}>
       {/* Floating action button toggle */}
       {isFloating && (
         <div className="fixed bottom-4 right-4 z-50 pointer-events-auto">
